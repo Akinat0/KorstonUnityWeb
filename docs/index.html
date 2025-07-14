@@ -111,14 +111,11 @@
 
       var script = document.createElement("script");
       script.src = loaderUrl;
-      
-      var unityGameInstance;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 loadingBar.style.display = "none";
-                unityGameInstance = unityInstance;
                 fullscreenButton.onclick = () => {
                   unityInstance.SetFullscreen(1);
                 };
@@ -126,7 +123,7 @@
                 alert(message);
               });
             };
-    
+
       document.body.appendChild(script);
 
     </script>
